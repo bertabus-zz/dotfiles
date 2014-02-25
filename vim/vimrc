@@ -1,0 +1,127 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+setlocal spell spelllang=en_us " set spell checking
+set number
+
+" Set Environment to be inside .config/vim/
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+
+" set copy paste shortcuts to system clipboard
+" nnoremap <leader>s :w<cr>
+" vnoremap <leader>s :w<cr>
+set clipboard=unnamedplus
+nnoremap <leader>p "+gP
+vnoremap <leader>p "+gP
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nmap <silent> ,/ :nohlsearch<CR>
+
+" set paths, ultisnips must be here for filedetection to work
+set rtp+=~/.config/vim/bundle/vundle/
+call vundle#rc("/home/bertabus/.config/vim/bundle/")
+set rtp+=~/.config/vim/bundle/ultisnips/
+
+set showcmd " show the keys being pressed
+:let mapleader = "," " change leader key to ,
+
+" kind of neat, use with <leader><leader>w
+" only goes below, not used much
+" Bundle 'Lokaltog/vim-easymotion'
+
+" create shortcuts for easy compiling/running
+Bundle 'xuhdev/SingleCompile'
+:map <leader>r :SCCompileRun<cr> 
+:map <leader>m :SCCompile<cr>
+:map <leader>v :SCViewResult<cr>
+
+Bundle 'tsaleh/vim-matchit'
+
+" Recognize Arduino Files
+au BufNewFile,BufRead *.ino set filetype=cpp
+
+" set directory to current file
+set autochdir
+
+" commenter that works exactly as needed
+Bundle 'tomtom/tcomment_vim'
+:map <leader>c gcc<esc>
+
+" better than command-t?
+" Have used CLI and awesome/ZSH for new file finding
+" Bundle 'kien/ctrlp.vim'
+" map <leader>t :CtrlP<cr>
+" let g:ctrlp_working_path_mode = 'ra'
+
+" check common syntax errors, very useful
+Bundle 'scrooloose/syntastic'
+
+" set python indenting to match PEP8
+autocmd filetype python setlocal ts=4 sts=4 sw=4 textwidth=80 
+
+" Set html indentation
+autocmd FileType javascript,html,css,php,htmldjango setlocal sw=2 ts=2 sts=2
+
+set smarttab
+set expandtab
+
+" insert words that have been used before.
+Bundle 'ervandew/supertab'
+" fix for using snippets and omnicomplete
+let g:SuperTabDefaultCompletionType="context"
+" fix for start of lines and spaces
+let g:SuperTabNoCompleteAfter=[',','\s',';','/','^']
+
+" a boatload of colorschemes (still small data size wise)
+Bundle 'flazz/vim-colorschemes'
+set background=dark
+colorscheme desert
+" colorscheme adam 
+
+
+Bundle 'bertabus/ultisnips'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+" let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+
+" Use to surround text with stuff, for "hello" use cs"' to get 'hello'
+" For visual mode make selection and use S" to surround with quotes
+" you can use `"' or (){}[]<> or t for tag with the tag ie. S<div>
+Bundle 'tpope/vim-surround'
+
+" git integration with fugitive, give :Gdiff :Gstatus :Gcommit 
+Bundle 'tpope/vim-fugitive'
+
+
+" let Vundle manage Vundle ,required! 
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" NOTE: comments after Bundle command are not allowed..
+Bundle 'gmarik/vundle'
+
+
+" set a custom status line
+" from https://github.com/spf13/spf13-vim/blob/master/.vimrc
+if has('statusline')
+  set laststatus=2
+  " Broken down into easily includeable segments
+  set statusline=%<%f\    " Filename
+  set statusline+=%w%h%m%r " Options
+  set statusline+=%{fugitive#statusline()} "  Git Hotness
+  set statusline+=\ [%{&ff}/%Y]            " filetype
+  set statusline+=\ [%{getcwd()}]          " current dir
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_enable_signs=1
+  set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+syntax on
+filetype plugin indent on     " required!

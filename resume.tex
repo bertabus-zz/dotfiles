@@ -1,0 +1,194 @@
+% resume.tex
+% vim:set ft=tex spell:
+
+% Modified from http://www.toofishes.net/blog/latex-resume-follow-up/
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{tgpagella}
+\usepackage{embedfile}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+
+% indentsection style, used for sections that aren't already in lists
+% that need indentation to the level of all text in the document
+\newenvironment{indentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% opposite of above; bump a section back toward the left margin
+\newenvironment{unindentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{-0.5#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+	#1 &
+	#2 \\
+\end{tabular*}}
+
+% make "C++" look pretty when used in text by touching up the plus signs
+\newcommand{\CPP}
+{C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+
+% and the actual content starts here
+\begin{document}
+\embedfile{resume.tex}
+\begin{center}
+{\LARGE \textbf{Billy C.\ Rond}}
+
+1142 Westwood Road\ \ \textbullet
+\ \ Bountiful, UT 84010
+\\
+(801) 915-6994\ \ \textbullet
+\ \ billy.rond@gmail.com
+\end{center}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Experience}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Department of Defense}}
+		{\textbf{Hill Air Force Base, UT}}
+	\\
+	\headerrow
+		{\emph{Systems Engineer}}
+		{\emph{2009 -- Present}}
+	\begin{itemize*}
+                \item Part of a team responsible for
+                        SLCM (software lifecycle management) of F-22 software. 
+                        Personally accountable for depot activation of F-22 SMS (stores management system),
+                        radar, and power supply's.
+                        Responsible to coordinate and 
+                        provide engineering support for these systems.
+                \item provided SPO (systems program office) systems engineering support of aircraft simulators.
+                        Coordinated the maintenance and CLS (Contract Logistics Support) for these simulators.
+                        Supervise acquisition of systems for the upgrade of legacy simulator systems due to
+                        training requirement and/or obsolescence. Oversee the testing of new systems to ensure
+                        that they meet standards and integrate with existing systems. Due to restructuring of the
+                        Air Force the Simulator SPO was moved to another base.
+	\end{itemize*}
+
+	\item
+	\headerrow
+		{\textbf{L3 Communications Systems West}}
+                {\textbf{Salt Lake City, UT}}
+	\\
+	\headerrow
+		{\emph{Intern, Radio Frequency design group}}
+		{\emph{Summer 2008}}
+	\begin{itemize*}
+                \item Summer Intern with L3 communications. Responsibilities at L3 included developing
+                        new software that increased productivity. These programs interfaced over GPIB with
+                        existing test equipment performing automated test procedures. These tests logged data
+                        that was used to generate real-time graphs displaying part characteristics. Part of a team
+                        designing a working prototype for government demonstrations. Worked for the RF
+                        design team.
+	\end{itemize*}
+
+\end{itemize}
+
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Education}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item 
+	\headerrow
+		{\textbf{University of Utah}}
+		{\textbf{Salt Lake City, UT}}
+	\\
+	\headerrow
+		{\emph{College of Engineering, M.S. Electrical Engineering}}
+		{\emph{2010-2011}}
+	\begin{itemize*}
+                \item Leader of a 5 person graduate/undergraduate diverse background engineering team at the
+                        University of Utah. Team analyzed market feasibilities and developed an entrepreneurial
+                        strategy for entrance into the market as well as a short term/long term strategy.
+                        Responsible for delegating roles and integrating all the efforts of the team members in
+                        developing these plans. Teams competed and were judged by each other and our team
+                        finished among the top of our class.
+	\end{itemize*}
+
+\end{itemize}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item 
+	\headerrow
+		{\textbf{Utah State University}}
+		{\textbf{Logan, UT}}
+	\\
+	\headerrow
+		{\emph{College of Engineering, B.S. Electrical Engineering}}
+		{\emph{2002 -- 2003,2005 -- 2009}}
+	\begin{itemize*}
+                \item Leader of a group that developed a biomimetic robotic beetle that mimicked the bouncing
+                        motion of insects. This project required skills in both mechanic hardware and electrical
+                        hardware interactions.
+                \item Wrote proposal and entered senior design in the Utah State Entrepreneurial Contest.
+                        Design and plan was chosen as one of top ten to be presented to three judges. Honored at
+                        awards dinner.
+	\end{itemize*}
+
+\end{itemize}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Core Technical Skills}
+
+\begin{indentsection}{\parindent}
+\hyphenpenalty=1000
+\begin{description*}
+	\item[Software:]
+	C, \CPP, ASM, Python, Verilog HDL, Linux, Windows, Labview, Matlab, MS office 
+	\item[Hardware:]
+	8/16/32 bit Microprocessors, Digital I/O, Digital interfaces, VLSI design, FPGA/PLC design
+\end{description*}
+\end{indentsection}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Other}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item 
+	\headerrow
+		{\textbf{Voluntary Service}}
+		{\textbf{Atlanta, GA}}
+	\\
+	\headerrow
+		{\emph{Church Missionary}}
+		{\emph{2003-2005}}
+        \item Interests
+
+        \begin{itemize*}
+                \item Amateur radio operator (KE7OHB), have communicated with others all other the US.
+                \item Sous-Vide, a PID controlled water oven for cooking food.
+        \end{itemize*}
+
+\end{itemize}
+
+\end{document}
