@@ -1,0 +1,4 @@
+[submodule]
+    path = awesome/themes/
+    url  = https://github.com/mikar/awesome-themes
+
