@@ -14,6 +14,8 @@
 # ignore these subfolders
 /vim/*
 ranger/__pycache__/*
+ranger/history
+ranger/bookmarks
 
 # include the following files
 !.screenrc
