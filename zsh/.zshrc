@@ -83,6 +83,7 @@ alias lF='ls -F'
 alias laF='ls -laF'
 alias llF='ls -lF'
 alias llaF='ls -alF'
+alias salae=Logic
 
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
