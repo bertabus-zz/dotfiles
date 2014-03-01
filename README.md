@@ -6,7 +6,7 @@ in order to hide them and keep them all under version control.
 I place mine in */home/bertabus/.config* in keeping with the
 freedesktop standards. Don't forget to create these files 
 if they don't exist already.
-```shell
+``` sh
 mkdir ~/.config
 mkdir ~/.cache
 ```
@@ -15,7 +15,7 @@ mkdir ~/.cache
 directory except those files/folders explicitly called out.
 In order to get PATHs setup right edit your bash or zsh
 environment.
-```shell
+``` sh
 # File at /etc/zsh/zshenv
 
 if [[ -z "$XDG_CONFIG_HOME" ]]
@@ -37,7 +37,7 @@ fi
 
 Lastly to get X11 set up without needing to move files
 edit gdm/kdm/xdm/slim loader config.
-```shell
+``` sh
 # File at /etc/slim.conf
 # the pertinent line should read
 login_cmd  exec /bin/bash -login ~/.config/X11/.xinitrc %session
