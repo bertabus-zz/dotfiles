@@ -43,12 +43,21 @@ edit gdm/kdm/xdm/slim loader config.
 login_cmd  exec /bin/bash -login ~/.config/X11/.xinitrc %session
 ```
 
-my ZSHrc is heavily dependant on https://github.com/robbyrussell/oh-my-zsh
+my ZSHrc is heavily dependant on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 and I clone mine in ~/.config/oh-my-zsh/ (just take a look in my zshrc).
 Clone my config with
 ``` sh
 cd ~/.config
 git clone https://github.com/bertabus/dotfiles .
 ``` 
+
+Vim won't work right without setting RTP and cloning [vundle](https://github.com/gmarik/Vundle.vim)
+``` sh
+git clone https://github.com/gmarik/vundle.git ~/.config/vim/bundle/vundle
+```
+
+Also take a look at the my [UDEV rules](rules.d/) that are useful for various
+embedded programmers.
+
 
 

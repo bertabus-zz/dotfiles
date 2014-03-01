@@ -10,6 +10,7 @@
 !/X11/
 !/ranger/
 !/vim/
+!/rules.d/
 
 # ignore these subfolders
 /vim/*
