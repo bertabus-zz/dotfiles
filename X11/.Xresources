@@ -44,7 +44,7 @@ URxvt.matcher.button:   1
 
 !urxvt extensions:
 URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.perl-ext:  default,matcher,clipboard
+URxvt.perl-ext:  default,matcher,clipboard,url-select
 
 !enable copy paste with gnome-like interface
 URxvt.iso14755: false

@@ -2,6 +2,7 @@
 # https://github.com/muennich/urxvt-perls
 # I should be placed with other perl libs
 # sudo cp clipboard /usr/lib/urxvt/perl/
+# requires "urxvt-perls" and maybe "xclip" packages
 
 use strict;
 
