@@ -2,6 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 setlocal spell spelllang=en_us " set spell checking
 set number
+set smartcase
 
 " Set Environment to be inside .config/vim/
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
