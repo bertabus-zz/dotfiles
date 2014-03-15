@@ -83,9 +83,13 @@ alias lF='ls -F'
 alias laF='ls -laF'
 alias llF='ls -lF'
 alias llaF='ls -alF'
-alias salae=Logic
 
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
+# for custom programs
+export PATH=/opt/saleae:$PATH
+export PATH=/opt/altera/13.1/quartus/bin:$PATH
+alias saleae=logic
+alias quartus='quartus --64bit'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
