@@ -42,6 +42,7 @@ edit gdm/kdm/xdm/slim loader config.
 # the pertinent line should read
 login_cmd  exec /bin/bash -login ~/.config/X11/.xinitrc %session
 ```
+But while your there it is nice to turn numlock on at boot in slim.conf as well.
 
 my ZSHrc is heavily dependant on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 and I clone mine in ~/.config/oh-my-zsh/ (just take a look in my zshrc).

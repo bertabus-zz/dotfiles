@@ -1,8 +1,25 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-setlocal spell spelllang=en_us " set spell checking
 set number
 set smartcase
+
+set spell
+setlocal spell spelllang=en_us " set spell checking
+" zg to add word to word list
+" zw to reverse
+" zug to remove word from word list
+" z= to get list of possibilities
+set spellfile=~/.config/vim/spellfile.add
+" fix mis-spelled highlighting
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+set shell=/bin/zsh
 
 " Set Environment to be inside .config/vim/
 set directory=$XDG_CACHE_HOME/vim,~/,/tmp
@@ -78,10 +95,11 @@ let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabNoCompleteAfter=[',','\s',';','/','^']
 
 " a boatload of colorschemes (still small data size wise)
-Bundle 'flazz/vim-colorschemes'
-set background=dark
-colorscheme desert
+" Bundle 'flazz/vim-colorschemes'
+" set background=dark
+" colorscheme desert
 " colorscheme adam 
+" messes with underlining and Xresources theme.
 
 
 Bundle 'bertabus/ultisnips'
@@ -126,3 +144,17 @@ if has('statusline')
 endif
 syntax on
 filetype plugin indent on     " required!
+
+
+
+" testing seting single compile from shebang
+fun! s:DetectNode()
+    if getline(1) == '#!/usr/bin/env pypy'
+        :map <leader>r :!exec ./%<\n> 
+        :map <leader>m :SCCompile<cr>
+        :map <leader>v :SCViewResult<cr>
+        " call s:SCChooseCompiler 1<\r>
+    endif
+endfun
+autocmd BufNewFile,BufRead * call s:DetectNode()
+

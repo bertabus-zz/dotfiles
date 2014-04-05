@@ -1,29 +1,34 @@
 # ignore everything except what I tell you
 /*
 
-# include these (these need there own .gitignore)
-# with !* to include everything
-!/matplotlib/
-!/awesome/
-!/bin/
-!/zsh/
-!/X11/
-!/ranger/
-!/vim/
-!/rules.d/
+# include these (these may need there own .gitignore)
+#with !* to include everything
+!matplotlib/
+!bin/
+!zsh/
+!X11/
+!ranger/
+!vim/
+!rules.d/
+!xmonad/
 
 # ignore these subfolders
-/vim/*
+vim/*
 ranger/__pycache__/*
 ranger/history
 ranger/bookmarks
+xmonad/*
 
 # include the following files
-!.screenrc
-!/vim/vimrc
+!screenrc
+!vim/vimrc
 !resume.tex
 !.gitignore
+!xmonad/xmonad.hs
+!xmonad/xmobar.hs
+!xmonad/README.markdown
 
 # ignore these subfiles
-/zsh/.zsh_history
-/zsh/.zcompdump*
+zsh/.zsh_history
+zsh/.zcompdump*
+

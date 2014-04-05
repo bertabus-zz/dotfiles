@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+xrdb -merge ~/.config/X11/Xresources
+
+# exec gnome-session
+# exec startkde
+# exec startxfce4
+# exec enlightenment_start 
+# exec awesome
+
+xbindkeys -f ~/.config/X11/xbindkeysrc
+
+# set the cursor
+xsetroot -cursor_name left_ptr
+# set German keyboard layout
+setxkbmap us -variant dvorak
+
+# start composite manager
+xcompmgr -n &
+
+feh --randomize --bg-fill ~/Pictures/wallpapers/*
+#date +"%A"
+
+# start xmonad
+exec xmonad
+

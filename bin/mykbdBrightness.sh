@@ -1,4 +1,4 @@
-#/!bin/bash
+#!/bin/bash
 
 declare -i brightness=`cat /sys/class/leds/smc::kbd_backlight/brightness`
 

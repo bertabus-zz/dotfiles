@@ -27,7 +27,7 @@ ZSH_THEME="kphoen"
 # CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -42,7 +42,7 @@ ZSH_THEME="kphoen"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -71,7 +71,7 @@ alias 01='scanimage --mode Binary --resolution 600 -x 215.9 -y 279.4 > test.ppm'
 alias 01='scanimage --mode Binary --resolution 600 > test.ppm'
 alias 01='scanimage --mode Binary --resolution 600 > test.ppm'
 
-# A few costomization aliases 
+# A few customization aliases 
 alias :q=exit
 alias o=xdg-open
 alias www=chromium %U
@@ -85,11 +85,19 @@ alias llF='ls -lF'
 alias llaF='ls -alF'
 
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
+
+# for xmonad
+# export PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
+
 # for custom programs
 export PATH=/opt/saleae:$PATH
 export PATH=/opt/altera/13.1/quartus/bin:$PATH
 alias saleae=logic
 alias quartus='quartus --64bit'
+alias 'pypy.test'='/opt/pypy/bin/py.test'
+alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
+alias 'screen'='screen -c ~/.config/screenrc'
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
