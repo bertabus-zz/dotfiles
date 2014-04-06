@@ -59,7 +59,9 @@
 "scrot"
   XF86LaunchA 
 "scrot -s"
-  Control + XF86LaunchA 
+  Control+XF86LaunchA 
+"dmenu_run"
+  XF86LaunchB
 "eject"
   XF86Eject
 

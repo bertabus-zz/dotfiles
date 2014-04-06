@@ -13,6 +13,9 @@ mkdir ~/.cache
 
 *.gitignore* will exclude everything that is in the 
 directory except those files/folders explicitly called out.
+The easiest way to clone is to do it in a clean 
+folder and move everything from there to where you want it.
+
 In order to get PATHs setup right edit your bash or zsh
 environment.
 ``` sh
@@ -35,7 +38,7 @@ then
 fi
 ```
 
-Lastly to get X11 set up without needing to move files
+Next to get X11 set up without needing to move files
 edit gdm/kdm/xdm/slim loader config.
 ``` sh
 # File at /etc/slim.conf
@@ -60,5 +63,12 @@ git clone https://github.com/gmarik/vundle.git ~/.config/vim/bundle/vundle
 Also take a look at the my [UDEV rules](rules.d/) that are useful for various
 embedded programmers.
 
+I really like xmonad, I don't have a clever way to locate them in .config permanently
+so symlink them as usual
+``` sh
+ln -s ~/.config/xmonad ~/.xmonad
+xmonad --recompile
+xmonad --restart
+```
 
 
