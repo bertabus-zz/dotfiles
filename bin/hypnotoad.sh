@@ -1,4 +1,4 @@
-#!/bin/env zsh
+#!/usr/bin/env zsh
 the_fortune=`fortune`
 clear
 for i in {1..6}
