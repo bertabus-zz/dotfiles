@@ -55,6 +55,15 @@ cd ~/.config
 git clone https://github.com/bertabus/dotfiles .
 ``` 
 
+Problems can arise when connecting to remote hosts over ZSH, I solve this by copying over my shell
+with something along the lines of:
+```sh
+# on remote server
+mkdir -p ~/.terminfo/rl
+# on localhost machine
+scp /usr/share/terminfo/r/rxvt-256color user@server.com:.terminfo/r/
+```
+
 Vim won't work right without setting RTP and cloning [vundle](https://github.com/gmarik/Vundle.vim)
 ``` sh
 git clone https://github.com/gmarik/vundle.git ~/.config/vim/bundle/vundle

@@ -17,6 +17,7 @@ vim/*
 ranger/__pycache__/*
 ranger/history
 ranger/bookmarks
+ranger/commands.pyo
 xmonad/*
 
 # include the following files
