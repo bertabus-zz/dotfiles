@@ -8,7 +8,7 @@ do
     # clear
     cowsay -f ~/.config/bin/hypno.cow -e $eyes $the_fortune
     printf "\033[55A"
-    sleep .05
+    sleep .02
   done
 done
 cowsay -f ~/.config/bin/hypno.cow -e $eyes $the_fortune

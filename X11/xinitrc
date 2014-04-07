@@ -4,20 +4,19 @@
 #
 # Executed by startx (run your window manager from here)
 
-xrdb -merge ~/.config/X11/Xresources
-
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# exec enlightenment_start 
-# exec awesome
-
-xbindkeys -f ~/.config/X11/xbindkeysrc
-
 # set the cursor
 xsetroot -cursor_name left_ptr
-# set German keyboard layout
+# set Dvorak keyboard layout
 setxkbmap us -variant dvorak
+
+xrdb -merge ~/.config/X11/xresources
+
+# bind XF86 and other key maps
+xbindkeys -f ~/.config/X11/xbindkeysrc
+# change caps lock to mod4 key
+xmodmap -e "clear Lock"       
+xmodmap -e "keycode 66 = Hyper_L"
+xmodmap -e "add mod4 = Hyper_L" 
 
 # start composite manager
 xcompmgr -n &
@@ -25,6 +24,11 @@ xcompmgr -n &
 feh --randomize --bg-fill ~/Pictures/wallpapers/*
 #date +"%A"
 
-# start xmonad
+# start Window manager
 exec xmonad
+# exec gnome-session
+# exec startkde
+# exec startxfce4
+# exec enlightenment_start 
+# exec awesome
 
