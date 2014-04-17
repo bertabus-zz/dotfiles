@@ -77,6 +77,13 @@ Bundle 'tomtom/tcomment_vim'
 
 " check common syntax errors, very useful
 Bundle 'scrooloose/syntastic'
+" Auto format go files on Save
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" Auto format python files on Save
+" autocmd FileType python autocmd BufWritePre <buffer> ???
+
+" add Bundle for Go files
+Bundle 'jnwhiteh/vim-golang'
 
 " set python indenting to match PEP8
 autocmd filetype python setlocal ts=4 sts=4 sw=4 textwidth=80 
