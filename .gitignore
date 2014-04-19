@@ -5,6 +5,7 @@
 #with !* to include everything
 !matplotlib/
 !bin/
+!bin/src
 !zsh/
 !X11/
 !ranger/

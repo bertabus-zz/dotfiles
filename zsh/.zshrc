@@ -58,7 +58,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(archlinux git git-extras github pip python debian \
-	colored-man fasd nyan vundle lol django extract)
+	colored-man fasd nyan vundle lol django extract golang)
 #requires apt-get install of autojump pip
 
 source $ZSH/oh-my-zsh.sh
@@ -85,6 +85,9 @@ alias llF='ls -lF'
 alias llaF='ls -alF'
 
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
+export GOPATH=~/go
+export GOBIN=~/go/bin
+export PATH=$PATH:~/go/bin
 
 # for xmonad
 # export PATH=$PATH:~/.cabal/bin:~/.xmonad/bin

@@ -1,12 +1,15 @@
 Xcursor.theme:    Vanilla-DMZ-AA
-!enabling clickable links:
-
-URxvt.url-Launcher:   x-www-browser
-URxvt.matcher.button:   1 
 
 !urxvt extensions:
 URxvt.perl-lib: /usr/lib/urxvt/perl/
-URxvt.perl-ext:  default,matcher,clipboard,url-select
+URxvt.perl-ext:  default,matcher,clipboard
+
+!enabling clickable links:
+!requires urxvt-perls package
+URxvt.url-launcher:      /usr/bin/chromium
+URxvt.matcher.button:   1
+URxvt.colorUL: #4682B4
+
 
 !enable copy paste with gnome-like interface
 URxvt.iso14755: false
