@@ -57,7 +57,9 @@ Bundle 'xuhdev/SingleCompile'
 :map <leader>m :SCCompile<cr>
 :map <leader>v :SCViewResult<cr>
 
-Bundle 'tsaleh/vim-matchit'
+" Bundle 'eshock/vim-matchit'
+Bundle 'Valloric/MatchTagAlways'
+
 
 " Recognize Arduino Files
 au BufNewFile,BufRead *.ino set filetype=cpp
@@ -90,6 +92,8 @@ autocmd filetype python setlocal ts=4 sts=4 sw=4 textwidth=80
 
 " Set html indentation
 autocmd FileType javascript,html,css,php,htmldjango setlocal sw=2 ts=2 sts=2
+" :au FileType xml,html,htmldjango autocmd :%!tidy
+" autocmd BufWritePost *.py execute "!tidy % %" | e
 
 set smarttab
 set expandtab

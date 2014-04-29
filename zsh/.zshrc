@@ -89,6 +89,8 @@ export GOPATH=~/go
 export GOBIN=~/go/bin
 export PATH=$PATH:~/go/bin
 
+export PATH=$PATH:/opt/google/go_appengine/
+
 # for xmonad
 # export PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
 
