@@ -101,6 +101,14 @@ alias 'pypy.test'='/opt/pypy/bin/py.test'
 alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
 alias 'screen'='screen -c ~/.config/screenrc'
 
+# add dvd and cd burning aliases
+# use these as burn[cd/dvd] /dev/sr0 file1 file2 file3
+# burndvd may need export MKISOFS="genisoimage"
+burndvd () {growisofs -Z $1 -V "ARCHIVE_2013_07_27" -r -J ${*:2}}
+alias burnblu=burndvd
+burncd () {genisoimage -V "ARCHIVE_2013_07_27" -J -r ${*:2} | \
+wodim -v dev=$1 -waiti -}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
