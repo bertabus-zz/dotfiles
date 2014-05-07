@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get Xresources | find lines with colors | remove spaces and wildcards
-colors=$(cat ~/.config/X11/Xresources | egrep "color[0-9]+" | sed -e "s/[* ]\+//g" | sed -e "s/\!.*//g");
+colors=$(cat ~/.config/X11/xresources | egrep "color[0-9]+" | sed -e "s/[* ]\+//g" | sed -e "s/\!.*//g");
 
 # Read hex color values and strore them in an array.
 # Array looks like this:

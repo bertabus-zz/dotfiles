@@ -83,18 +83,15 @@ alias lF='ls -F'
 alias laF='ls -laF'
 alias llF='ls -lF'
 alias llaF='ls -alF'
+alias j="z" #fasd alias for file jumping 
 
+# for custom programs/installations
+# All programs should be placed in /opt/
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
 export GOPATH=~/go
 export GOBIN=~/go/bin
 export PATH=$PATH:~/go/bin
-
 export PATH=$PATH:/opt/google/go_appengine/
-
-# for xmonad
-# export PATH=$PATH:~/.cabal/bin:~/.xmonad/bin
-
-# for custom programs
 export PATH=/opt/saleae:$PATH
 export PATH=/opt/altera/13.1/quartus/bin:$PATH
 alias saleae=logic
