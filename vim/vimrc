@@ -1,10 +1,11 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
-set relativenumber
-set number
-set cursorline
-set cursorcolumn
-set smartcase
+set relativenumber " make jumping easier
+set number         " find error lines even with above on
+set cursorline   " where am I?
+set cursorcolumn " where am I?
+set smartcase " psuedo case insensitive search
+set incsearch " faster finding
 set shell=/bin/zsh
 
 set spell
@@ -52,7 +53,6 @@ set rtp+=~/.config/vim/bundle/ultisnips/
 " Setup bundles
 set rtp+=~/.config/vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'gmarik/Vundle.vim'
 
 " create shortcuts for easy compiling/running
@@ -61,15 +61,8 @@ Plugin 'xuhdev/SingleCompile'
 :map <leader>m :SCCompile<cr>
 :map <leader>v :SCViewResult<cr>
 
-" Bundle 'eshock/vim-matchit'
+" Provide html/xml tag support
 Plugin 'Valloric/MatchTagAlways'
-
-
-" Recognize Arduino Files
-au BufNewFile,BufRead *.ino set filetype=cpp
-
-" set directory to current file
-set autochdir
 
 " commenter that works exactly as needed
 Plugin 'tomtom/tcomment_vim'
@@ -83,46 +76,23 @@ Plugin 'tomtom/tcomment_vim'
 
 " check common syntax errors, very useful
 Plugin 'scrooloose/syntastic'
-" Auto format go files on Save
-" autocmd FileType go autocmd BufWritePre <buffer> Fmt
-" Auto format python files on Save
-" autocmd FileType python autocmd BufWritePre <buffer> ???
 
 " add Bundle for Go files
-" Bundle 'jnwhiteh/vim-golang'
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
-" set python indenting to match PEP8
-autocmd filetype python setlocal ts=4 sts=4 sw=4 textwidth=80 
+" Track the engine for snippets.
+Plugin 'SirVer/ultisnips'
 
-" Set html indentation
-autocmd FileType javascript,html,css,php,htmldjango setlocal sw=2 ts=2 sts=2
-" :au FileType xml,html,htmldjango autocmd :%!tidy
-" autocmd BufWritePost *.py execute "!tidy % %" | e
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
-set smarttab
-set expandtab
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" insert words that have been used before.
-Plugin 'ervandew/supertab'
-" fix for using snippets and omnicomplete
-let g:SuperTabDefaultCompletionType="context"
-" fix for start of lines and spaces
-let g:SuperTabNoCompleteAfter=[',','\s',';','/','^']
-
-" a boatload of colorschemes (still small data size wise)
-" Bundle 'flazz/vim-colorschemes'
-" set background=dark
-" colorscheme desert
-" colorscheme adam 
-" messes with underlining and Xresources theme.
-
-
-Plugin 'bertabus/ultisnips'
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-" let g:UltiSnipsSnippetDirectories = ['UltiSnips', 'snippets']
+" use a tab completion engine
+Plugin 'Valloric/YouCompleteMe'
 
 " Use to surround text with stuff, for "hello" use cs"' to get 'hello'
 " For visual mode make selection and use S" to surround with quotes
@@ -141,6 +111,25 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'gmarik/vundle'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" set directory to current file
+set autochdir
+
+" Recognize Arduino Files
+au BufNewFile,BufRead *.ino set filetype=cpp
+
+" set python indenting to match PEP8
+autocmd filetype python setlocal ts=4 sts=4 sw=4 textwidth=80 
+" Auto format python files on Save
+" autocmd FileType python autocmd BufWritePre <buffer> ???
+
+" Set html indentation
+autocmd FileType javascript,html,css,php,htmldjango setlocal sw=2 ts=2 sts=2
+" :au FileType xml,html,htmldjango autocmd :%!tidy
+" autocmd BufWritePost *.py execute "!tidy % %" | e
+
+set smarttab
+set expandtab
 
 " set a custom status line
 " from https://github.com/spf13/spf13-vim/blob/master/.vimrc
