@@ -1,11 +1,19 @@
 set nocompatible               " be iMproved
+" Set Environment to be inside .config/vim/
+set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
 filetype off                   " required!
 set relativenumber " make jumping easier
 set number         " find error lines even with above on
-set cursorline   " where am I?
+" set cursorline   " where am I?
 set cursorcolumn " where am I?
 set smartcase " psuedo case insensitive search
 set incsearch " faster finding
+set scrolloff=15
 set shell=/bin/zsh
 
 set spell
@@ -25,14 +33,6 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-" Set Environment to be inside .config/vim/
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
-
-
 " set copy paste shortcuts to system clipboard
 " nnoremap <leader>s :w<cr>
 " vnoremap <leader>s :w<cr>
@@ -46,13 +46,9 @@ nmap <silent> ,/ :nohlsearch<CR>
 set showcmd " show the keys being pressed
 :let mapleader = "," " change leader key to ,
 
-" filetype off                  " required
-" set paths, ultisnips must be here for filedetection to work
-set rtp+=~/.config/vim/bundle/ultisnips/
-
 " Setup bundles
 set rtp+=~/.config/vim/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin("/home/bertabus/.config/vim/bundle/")
 Plugin 'gmarik/Vundle.vim'
 
 " create shortcuts for easy compiling/running
@@ -86,13 +82,15 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-tab>"
+"" Ultisnips use Control t and b/w to move around
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-w>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " use a tab completion engine
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2' " Arch uses python3
 
 " Use to surround text with stuff, for "hello" use cs"' to get 'hello'
 " For visual mode make selection and use S" to surround with quotes
