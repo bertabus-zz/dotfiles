@@ -15,6 +15,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.PerWorkspace
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
@@ -35,7 +36,7 @@ myTerminal = "urxvt"
 -- Workspaces
 -- The default number of workspaces (virtual screens) and their names.
 --
-myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..9]
+myWorkspaces = ["1:term","2:web","3:code","4:vm","5:media"] ++ map show [6..8] ++ ["9:docs"]
 
 
 ------------------------------------------------------------------------
@@ -63,6 +64,7 @@ myManageHook = composeAll
     , className =? "MPlayer"        --> doFloat
     , className =? "VirtualBox"     --> doShift "4:vm"
     , className =? "Xchat"          --> doShift "5:media"
+    , className =? "Zathura"        --> doShift "9:docs"
     , className =? "stalonetray"    --> doIgnore
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
@@ -77,12 +79,15 @@ myManageHook = composeAll
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (
+myLayout = 
+    onWorkspaces ["2:web"] (tabbed shrinkText tabConfig |||
+    noBorders (fullscreenFull Full)) $ 
+    avoidStruts (
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
-    tabbed shrinkText tabConfig |||
-    Full |||
-    spiral (6/7)) |||
+    tabbed shrinkText tabConfig) |||
+    -- Full) |||
+    -- spiral (6/7)) |||
     noBorders (fullscreenFull Full)
 
 
@@ -345,7 +350,7 @@ defaults = defaultConfig {
     mouseBindings      = myMouseBindings,
 
     -- hooks, layouts
-    layoutHook         = smartBorders $ myLayout,
+    layoutHook         = smartBorders $ myLayout, 
     manageHook         = myManageHook,
     startupHook        = myStartupHook
 }

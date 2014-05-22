@@ -11,6 +11,7 @@ set relativenumber " make jumping easier
 set number         " find error lines even with above on
 " set cursorline   " where am I?
 set cursorcolumn " where am I?
+set ignorecase
 set smartcase " psuedo case insensitive search
 set incsearch " faster finding
 set scrolloff=15
@@ -91,6 +92,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " use a tab completion engine
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2' " Arch uses python3
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " Use to surround text with stuff, for "hello" use cs"' to get 'hello'
 " For visual mode make selection and use S" to surround with quotes

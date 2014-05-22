@@ -125,4 +125,5 @@ wodim -v dev=$1 -waiti -}
 #
 
 # display logo and info
-hypnotoad.sh
+# hypnotoad.sh
+fortune
