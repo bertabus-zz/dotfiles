@@ -84,6 +84,7 @@ alias laF='ls -laF'
 alias llF='ls -lF'
 alias llaF='ls -alF'
 alias j="z" #fasd alias for file jumping 
+alias less='most'
 
 # for custom programs/installations
 # All programs should be placed in /opt/
@@ -94,6 +95,7 @@ export PATH=$PATH:~/go/bin
 export PATH=$PATH:/opt/google/go_appengine/
 export PATH=/opt/saleae:$PATH
 export PATH=/opt/altera/13.1/quartus/bin:$PATH
+export PATH=/usr/local/texlive/2013/bin/x86_64-linux/:$PATH
 alias saleae=logic
 alias quartus='quartus --64bit'
 alias 'pypy.test'='/opt/pypy/bin/py.test'
@@ -108,7 +110,9 @@ alias burnblu=burndvd
 burncd () {genisoimage -V "ARCHIVE_2013_07_27" -J -r ${*:2} | \
 wodim -v dev=$1 -waiti -}
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/texlive/2013/texmf-dist/doc/man"
+
 
 # # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

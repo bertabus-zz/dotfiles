@@ -1,4 +1,4 @@
-// ServeFiles.go
+// httpserver.go
 package main
 
 import (
@@ -8,10 +8,13 @@ import (
 	"net/http"
 )
 
-var ( //Declare Command line Arguments
-	port = flag.String("port", "8080", "Define what TCP port to bind to")
-	root = flag.String("root", ".", "Define the root filesystem path")
-)
+var port, root string
+
+func init() {
+	//Declare Command line Arguments
+	flag.StringVar(&port, "port", "8080", "Define what TCP port to bind to")
+	flag.StringVar(&root, "root", ".", "Define the root filesystem path")
+}
 
 func main() {
 	flag.Parse()
@@ -28,8 +31,9 @@ func main() {
 	}
 
 	//Print out help info
-	fmt.Println("listening at localhost:" + *port)
+	fmt.Println("listening at localhost:" + port)
 
 	//Serve files
-	http.ListenAndServe(":"+*port, http.FileServer(http.Dir(*root)))
+	http.Handle("/", http.FileServer(http.Dir(root)))
+	http.ListenAndServe(":"+port, nil)
 }
