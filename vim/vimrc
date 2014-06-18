@@ -9,8 +9,6 @@ let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 filetype off                   " required!
 set relativenumber " make jumping easier
 set number         " find error lines even with above on
-" set cursorline   " where am I?
-set cursorcolumn " where am I?
 set ignorecase
 set smartcase " psuedo case insensitive search
 set incsearch " faster finding
@@ -34,6 +32,21 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 set dict+=~/dicTest.dic 
+
+" set cursorline   " where am I?
+" set cursorcolumn " where am I?
+if &term =~ "xterm\\|rxvt"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;orange\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;red\x7"
+  silent !echo -ne "\033]12;red\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal
+endif
+
+
 
 " set copy paste shortcuts to system clipboard
 " nnoremap <leader>s :w<cr>
@@ -107,43 +120,42 @@ Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-litecorrect'
 Plugin 'reedes/vim-textobj-quote'
 Plugin 'kana/vim-textobj-user'
-Plugin 'reedes/vim-lexical'
-
-" let Vundle manage Vundle ,required! 
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-" NOTE: comments after Bundle command are not allowed..
+Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'gmarik/vundle'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-augroup textobj_quote
+augroup text_files
   autocmd!
   autocmd FileType markdown call textobj#quote#init()
   autocmd FileType textile call textobj#quote#init()
   autocmd FileType rst call textobj#quote#init()
-  autocmd FileType text call textobj#quote#init({'educate': 0})
+  autocmd FileType tex call textobj#quote#init()
+  " autocmd!
+  autocmd FileType markdown call litecorrect#init()
+  autocmd FileType textile call litecorrect#init()
+  autocmd FileType rst call litecorrect#init()
+  autocmd FileType tex call litecorrect#init()
 augroup END
 
-augroup litecorrect
-    autocmd!
-    autocmd FileType markdown call litecorrect#init()
-    autocmd FileType textile call litecorrect#init()
-    autocmd FileType rst call litecorrect#init()
-  augroup END
-
-augroup lexical
-  autocmd!
-  autocmd FileType markdown call lexical#init()
-  autocmd FileType textile call lexical#init()
-  autocmd FileType text call lexical#init()
-  autocmd FileType rst call lexical#init()
-augroup END
+let g:wordy#ring = [
+  \ 'weak',
+  \ ['being', 'passive-voice', ],
+  \ 'business-jargon',
+  \ 'weasel',
+  \ 'puffery',
+  \ ['problematic', 'redundant', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ ['off'],]
+" # ~/.config/vim/bundle/vim-wordy/data/en/off.dic
+" # off - just a blank dictionary that allows you to cycle through
+" # the rings to turn off wordy.
+" /encoding=utf-8
 
 nnoremap <silent> <leader>w :NextWordy<cr>
-
+nnoremap <leader>t :OnlineThesaurusCurrentWord<cr>
+nnoremap W ]s
+nnoremap B [s
 " set directory to current file
 set autochdir
 

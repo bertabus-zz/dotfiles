@@ -23,6 +23,7 @@ URxvt*scrollstyle:plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
+URxvt*cursorColor: #FF0000
 
 !add control jumping by words
 URxvt.keysym.Control-Up: \033[1;5A
