@@ -66,7 +66,7 @@ scp /usr/share/terminfo/r/rxvt-256color user@server.com:.terminfo/r/
 
 Vim won't work right without setting RTP and cloning [vundle](https://github.com/gmarik/Vundle.vim)
 ``` sh
-git clone https://github.com/gmarik/vundle.git ~/.config/vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Also take a look at the my [UDEV rules](rules.d/) that are useful for various
