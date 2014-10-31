@@ -43,7 +43,7 @@ edit gdm/kdm/xdm/slim loader config.
 ``` sh
 # File at /etc/slim.conf
 # the pertinent line should read
-login_cmd  exec /bin/bash -login ~/.config/X11/.xinitrc %session
+login_cmd  exec /bin/bash -login ~/.config/X11/xinitrc %session
 ```
 But while your there it is nice to turn numlock on at boot in slim.conf as well.
 
