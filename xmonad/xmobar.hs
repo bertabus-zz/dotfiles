@@ -16,7 +16,7 @@ Config {
         -- Run Weather "KPAO" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#709080","-h","#cc9393","-l","#96CBFE"] 36000,
         -- Run PipeReader "/home/bertabus/.xmonad/README.markdown" "log",   
         -- total4 just for testing, remove after observing
-        Run MultiCpu ["-t","Cpu: <total0> <total1> <tota2> <total3> <total4>","-L","30","-H","60","-h","#cc9393","-l","#709080","-n","#705050","-w","3"] 10,
+        Run MultiCpu ["-t","Cpu: <total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#cc9393","-l","#709080","-n","#705050","-w","3"] 10,
         -- Run MultiCpu ["-t","Cpu: <total0> <total1> <total2> <total3>","-L","30","-H","60","-h","#cc9393","-l","#709080","-n","#705050","-w","3"] 10,
         Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#cc9393","-l","#709080","-n","#705050"] 10,
         -- Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#cc9393","-l","#709080","-n","#705050"] 10,
