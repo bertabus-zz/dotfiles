@@ -1,4 +1,5 @@
 # Bertabus customizations
+# feh --randomize --bg-fill ~/Pictures/wallpapers/*
 DISABLE_AUTO_UPDATE="true"
 setopt DVORAK
 export PRINTER=HP_LaserJet_CP1525nw
@@ -9,6 +10,9 @@ export HISTFILE=$XDG_CONFIG_HOME/.zsh_history
 # Set vimrc's location and source it on vim startup
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 # export XDG_CONFIG_HOME=~/.config
+export LC_ALL=""
+export LC_COLLATE=C
+export LANG=en_US.UTF-8
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.config/oh-my-zsh
@@ -17,7 +21,7 @@ ZSH=$HOME/.config/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kphoen"
+ZSH_THEME="aussiegeek"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -102,6 +106,14 @@ alias 'pypy.test'='/opt/pypy/bin/py.test'
 alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
 alias 'screen'='screen -c ~/.config/screenrc'
 
+# for android setup
+export LD_LIBRARY_PATH=/opt/google/Android-Sdk/sdk/tools/lib:$LD_LIBRARY_PAT
+# android is general tool
+alias 'android'='/opt/google/Android-Sdk/sdk/tools/android'
+# use emu_android Lolipop_x86_avd_name
+emu_android () {/opt/google/Android-Sdk/sdk/tools/emulator-x86 \
+        -avd "$@" -gpu off -qemu -m 1024 -enable-kvm}
+
 # add dvd and cd burning aliases
 # use these as burn[cd/dvd] /dev/sr0 file1 file2 file3
 # burndvd may need export MKISOFS="genisoimage"
@@ -131,3 +143,13 @@ export MANPATH="/usr/local/texlive/2013/texmf-dist/doc/man"
 # display logo and info
 # hypnotoad.sh
 fortune
+
+# startx if not started already
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
+## add the following text to enable autologin for prior command
+#/etc/systemd/system/getty@tty1.service.d/autologin.conf
+#[Service]
+#ExecStart=
+#ExecStart=-/usr/bin/agetty --autologin username --noclear %I 38400 linux
+
+

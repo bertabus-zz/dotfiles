@@ -8,6 +8,15 @@
 xsetroot -cursor_name left_ptr
 # set Dvorak keyboard layout
 setxkbmap us -variant dvorak
+export LANG=en_US.UTF-8
+
+# add third pointer goodness
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2 
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+xset -b # No system beep
+setleds -caps
 
 xrdb -merge ~/.config/X11/xresources
 
@@ -19,7 +28,7 @@ xmodmap -e "keycode 66 = Hyper_L"
 xmodmap -e "add mod4 = Hyper_L" 
 
 # start composite manager
-xcompmgr -n &
+# xcompmgr -n &
 
 feh --randomize --bg-fill ~/Pictures/wallpapers/*
 #date +"%A"

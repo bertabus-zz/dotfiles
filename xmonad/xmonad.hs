@@ -16,6 +16,7 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.SimplestFloat
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import qualified XMonad.StackSet as W
@@ -68,6 +69,7 @@ myManageHook = composeAll
     , className =? "Xchat"          --> doShift "5:media"
     , className =? "Zathura"        --> doShift "9:docs"
     , className =? "stalonetray"    --> doIgnore
+    , className =? "emulator-arm"   --> doShift "4:vm"
     , isFullscreen --> (doF W.focusDown <+> doFullFloat)]
 
 
@@ -88,6 +90,7 @@ myLayout =
     Tall 1 (3/100) (1/2) |||
     Mirror (Tall 1 (3/100) (1/2)) |||
     tabbed shrinkText tabConfig) |||
+    simplestFloat |||
     -- Full) |||
     -- spiral (6/7)) |||
     noBorders (fullscreenFull Full)
@@ -95,26 +98,25 @@ myLayout =
 
 ------------------------------------------------------------------------
 -- Colors and borders
--- Currently based on the ir_black theme.
 --
 myNormalBorderColor  = "#7c7c7c"
-myFocusedBorderColor = "#cc9393"
+myFocusedBorderColor = "#EF2929"
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig = defaultTheme {
     activeBorderColor = "#7C7C7C",
-    activeTextColor = "#cc9393",
+    activeTextColor = "#EF2929",
     activeColor = "#000000",
     inactiveBorderColor = "#7C7C7C",
-    inactiveTextColor = "#EEEEEE",
+    inactiveTextColor = "#EEEEE",
     inactiveColor = "#000000"
 }
 
 -- Color of current window title in xmobar.
-xmobarTitleColor = "#cc9393"
+xmobarTitleColor = "#EF2929"
 
 -- Color of current workspace in xmobar.
-xmobarCurrentWorkspaceColor = "#cc9393"
+xmobarCurrentWorkspaceColor = "#EF2929"
 
 -- Width of the window border in pixels.
 myBorderWidth = 1

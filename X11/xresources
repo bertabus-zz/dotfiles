@@ -1,3 +1,6 @@
+! reload settings with
+! xrdb -merge .config/X11/xresources
+
 Xcursor.theme:    Vanilla-DMZ-AA
 
 !urxvt extensions:
@@ -35,37 +38,42 @@ Xft.antialias: true
 Xft.hinting: true
 ! Xft.hintstyle: hintlight
 ! Xft.rgba: rgb
-URxvt.font: xft:DejaVu Sans Mono-8
+! URxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=12:antialias=true
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true
+! URxvt.font: xft:Consolas:size=8, xft:Inconsolata for Powerline */
 ! URxvt.letterSpace: -1
+
 
 ! URxvt*inheritPixmap:    true
 URxvt*transparent:      true
 urxvt*shading:          10
 
-URxvt.foreground: #dcdccc
- 
 !URxvt.depth: 32
-URxvt*background: #3f3f3f
 
 
 URxvt*colorUL: #c5f779
 URxvt*underlineColor: #c5f779
  
-*color0: #3f3f3f
-*color1: #705050
-*color2: #60b48a
-*color3: #dfaf8f
-*color4: #506070
-*color5: #dc8cc3
-*color6: #8cd0d3
-*color7: #DCDCCC
-*color8: #709080
-*color9: #cc9393
-*color10:#7f9f7f
-*color11:#f0dfaf
-*color12:#94bff3
-*color13:#ec93d3
-*color14:#93e0e3
-*color15:#ffffff
- 
+! themes
+! --------------------------------------------------------------------
+
+urxvt*foreground: white
+urxvt*background: black
+
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
 

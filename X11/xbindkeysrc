@@ -46,24 +46,27 @@
   XF86AudioMute     
 
 # set Screen and keyboard brigthness
-"~/.config/bin/myBrightness.sh +"
-  XF86MonBrightnessUp
-"~/.config/bin/myBrightness.sh -"
-  XF86MonBrightnessDown  
-"~/.config/bin/mykbdBrightness.sh +"
-  XF86KbdBrightnessUp
-"~/.config/bin/mykbdBrightness.sh -"
-  XF86KbdBrightnessDown
+"xbacklight -inc 5"
+  Control+Home
+"xbacklight -inc -5"
+  Control+End  
+# "~/.config/bin/mykbdBrightness.sh +"
+#   XF86KbdBrightnessUp
+# "~/.config/bin/mykbdBrightness.sh -"
+#   XF86KbdBrightnessDown
 
 # set other Misc XF86 buttons
 "scrot"
-  XF86LaunchA 
+  Print
 "scrot -s"
-  Control+XF86LaunchA 
+  Control+Print
 "dmenu_run"
-  XF86LaunchB
+  XF86Launch1
 "eject"
   XF86Eject
+
+"chromium"
+  Mod4+c
 
 
 # "xbindkeys_show" 
