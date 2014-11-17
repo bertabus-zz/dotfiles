@@ -132,12 +132,12 @@ augroup text_files
   autocmd FileType markdown call textobj#quote#init()
   autocmd FileType textile call textobj#quote#init()
   autocmd FileType rst call textobj#quote#init()
-  autocmd FileType tex call textobj#quote#init()
+  " autocmd FileType tex call textobj#quote#init()
   " autocmd!
   autocmd FileType markdown call litecorrect#init()
   autocmd FileType textile call litecorrect#init()
   autocmd FileType rst call litecorrect#init()
-  autocmd FileType tex call litecorrect#init()
+  " autocmd FileType tex call litecorrect#init()
 augroup END
 
 let g:wordy#ring = [
