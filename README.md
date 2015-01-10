@@ -16,36 +16,10 @@ directory except those files/folders explicitly called out.
 The easiest way to clone is to do it in a clean 
 folder and move everything from there to where you want it.
 
-In order to get PATHs setup right edit your bash or zsh
-environment.
+In order to get PATHs setup right link the zshenv file.
 ``` sh
-# File at /etc/zsh/zshenv
-
-if [[ -z "$XDG_CONFIG_HOME" ]]
-then
-        export XDG_CONFIG_HOME=$HOME/.config
-fi
-
-if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
-then
-        export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
-fi
-
-
-if [[ -z "$XDG_CACHE_HOME" ]]
-then
-        export XDG_CACHE_HOME=$HOME/.cache
-fi
+ln -s ~/.config/zsh/.zshenv ~/.zshenv
 ```
-
-Next to get X11 set up without needing to move files
-edit gdm/kdm/xdm/slim loader config.
-``` sh
-# File at /etc/slim.conf
-# the pertinent line should read
-login_cmd  exec /bin/bash -login ~/.config/X11/xinitrc %session
-```
-But while your there it is nice to turn numlock on at boot in slim.conf as well.
 
 my ZSHrc is heavily dependant on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 and I clone mine in ~/.config/oh-my-zsh/ (just take a look in my zshrc).
