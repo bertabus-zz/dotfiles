@@ -146,7 +146,13 @@ export MANPATH="/usr/local/texlive/2013/texmf-dist/doc/man"
 fortune
 
 # startx if not started already
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
+# only run if not running headless
+# to get graphics run `touch ~/graphics`
+graphics_file="~/graphics"
+if [ -n graphics_file ]
+then
+  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
+fi
 ## add the following text to enable autologin for prior command
 #/etc/systemd/system/getty@tty1.service.d/autologin.conf
 #[Service]
