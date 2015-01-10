@@ -77,6 +77,12 @@ Plugin 'xuhdev/SingleCompile'
 " Provide html/xml tag support
 Plugin 'Valloric/MatchTagAlways'
 
+Plugin 'kien/rainbow_parentheses.vim'
+au VimEnter * RainbowParenthesesToggle
+
+Plugin 'airblade/vim-gitgutter'
+highlight clear SignColumn
+
 " commenter that works exactly as needed
 Plugin 'tomtom/tcomment_vim'
 :map <leader>c gcc<esc>

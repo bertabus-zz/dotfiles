@@ -89,6 +89,7 @@ alias llF='ls -lF'
 alias llaF='ls -alF'
 alias j="z" #fasd alias for file jumping 
 alias less='most'
+alias get-groups='cut -d: -f1 /etc/group'
 
 # for custom programs/installations
 # All programs should be placed in /opt/
@@ -112,7 +113,7 @@ export LD_LIBRARY_PATH=/opt/google/Android-Sdk/sdk/tools/lib:$LD_LIBRARY_PAT
 alias 'android'='/opt/google/Android-Sdk/sdk/tools/android'
 # use emu_android Lolipop_x86_avd_name
 emu_android () {/opt/google/Android-Sdk/sdk/tools/emulator-x86 \
-        -avd "$@" -gpu off -qemu -m 1024 -enable-kvm}
+        -avd "$@" -gpu on -qemu -m 1024 -enable-kvm}
 
 # add dvd and cd burning aliases
 # use these as burn[cd/dvd] /dev/sr0 file1 file2 file3
