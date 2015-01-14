@@ -16,11 +16,6 @@ directory except those files/folders explicitly called out.
 The easiest way to clone is to do it in a clean 
 folder and move everything from there to where you want it.
 
-In order to get PATHs setup right link the zshenv file.
-``` sh
-ln -s ~/.config/zsh/.zshenv ~/.zshenv
-```
-
 my ZSHrc is heavily dependant on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 and I clone mine in ~/.config/oh-my-zsh/ (just take a look in my zshrc).
 Clone my config with
@@ -29,13 +24,9 @@ cd ~/.config
 git clone https://github.com/bertabus/dotfiles .
 ``` 
 
-Problems can arise when connecting to remote hosts over ZSH, I solve this by copying over my shell
-with something along the lines of:
-```sh
-# on remote server
-mkdir -p ~/.terminfo/rl
-# on localhost machine
-scp /usr/share/terminfo/r/rxvt-256color user@server.com:.terminfo/r/
+In order to get PATHs setup right link the zshenv file.
+``` sh
+ln -s ~/.config/zsh/.zshenv ~/.zshenv
 ```
 
 Vim won't work right without setting RTP and cloning [vundle](https://github.com/gmarik/Vundle.vim)
@@ -52,6 +43,16 @@ so symlink them as usual
 ln -s ~/.config/xmonad ~/.xmonad
 xmonad --recompile
 xmonad --restart
+touch ~/graphics
 ```
 
+### Additional Notes
 
+Problems can arise when connecting to remote hosts over ZSH, I solve this by copying over my shell
+with something along the lines of:
+```sh
+# on remote server
+mkdir -p ~/.terminfo/rl
+# on localhost machine
+scp /usr/share/terminfo/r/rxvt-256color user@server.com:.terminfo/r/
+```
