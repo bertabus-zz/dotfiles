@@ -68,8 +68,8 @@ alias less='most'
 alias get-groups='cut -d: -f1 /etc/group'
 # Rename or move multiple files the easy way
 # http://www.mfasold.net/blog/2008/11/moving-or-renaming-multiple-files/
-autoload -U zmv           # activate zmv command - extened move command provided by zsh
-alias mmv='noglob zmv -W' # set the zmv commmand aslias to mmv
+autoload -U zmv           # activate zmv command
+alias mmv='noglob zmv -W' # set the zmv command alias to mmv
 
 # for custom programs/installations
 # All programs should be placed in /opt/
@@ -105,17 +105,6 @@ wodim -v dev=$1 -waiti -}
 
 export MANPATH="/usr/local/man:$MANPATH"
 export MANPATH="/usr/local/texlive/2013/texmf-dist/doc/man"
-
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
