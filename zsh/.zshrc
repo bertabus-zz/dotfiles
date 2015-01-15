@@ -38,7 +38,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(archlinux git git-extras github pip python debian \
 	colored-man fasd nyan vundle lol django extract \
-	golang systemd vi-mode )
+	golang systemd )
 #requires installation of fasd, 
 
 source $ZSH/oh-my-zsh.sh
@@ -128,7 +128,7 @@ fortune
 # only run if not running headless
 # to get graphics run `touch ~/graphics`
 graphics_file="~/graphics"
-if [ -n graphics_file ]
+if [ -f graphics_file ]
 then
   [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
 fi
