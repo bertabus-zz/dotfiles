@@ -6,6 +6,8 @@ export PRINTER=HP_LaserJet_CP1525nw
 # export TERM=xterm
 export EDITOR=vim
 export HISTFILE=$XDG_CONFIG_HOME/.zsh_history
+export BROWSER=chromium
+export wiki_browser=$BROWSER
 
 # Set vimrc's location and source it on vim startup
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
@@ -52,7 +54,7 @@ alias 01='scanimage --mode Binary --resolution 600 > test.ppm'
 # A few customization aliases 
 alias :q=exit
 alias o=xdg-open
-alias www=chromium %U
+alias www=$BROWSER %U
 # alias ls='ls --color'
 alias ll='ls -l'
 alias la='ls -a'
