@@ -3,7 +3,7 @@
 DISABLE_AUTO_UPDATE="true"
 setopt DVORAK
 export PRINTER=HP_LaserJet_CP1525nw
-export TERM=vt100 #important for ssh compatibility
+export TERM=xterm-256color #important for ssh compatibility
 export EDITOR=vim
 export HISTFILE=$XDG_CONFIG_HOME/.zsh_history
 export BROWSER=chromium
