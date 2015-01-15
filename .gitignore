@@ -22,6 +22,7 @@ ranger/commands.pyo
 xmonad/*
 
 # include the following files
+!.yaourtrc
 !screenrc
 !vim/vimrc
 !resume.tex
