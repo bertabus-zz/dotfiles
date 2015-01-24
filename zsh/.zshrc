@@ -22,6 +22,12 @@ ZSH=$HOME/.config/oh-my-zsh
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="aussiegeek"
 
+if [[ -z "$SSH_CLIENT" ]]; then
+        prompt_host=""
+else
+        prompt_host=%{$fg_bold[white]%}@%{$reset_color$fg[yellow]%}$(hostname -s)
+fi
+
 # Uncomment this to disable bi-weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
 
@@ -121,6 +127,7 @@ if [ -f graphics_file ]
 then
   [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
 fi
+
 ## add the following text to enable autologin for prior command
 #/etc/systemd/system/getty@tty1.service.d/autologin.conf
 #[Service]
