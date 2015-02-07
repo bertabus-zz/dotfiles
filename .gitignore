@@ -9,12 +9,12 @@
 !zsh/
 !X11/
 !ranger/
-!vim/bundle/
+!vim/
 !rules.d/
 !xmonad/
 
 # ignore these subfolders
-vim/*
+vim/bundle/
 ranger/__pycache__/*
 ranger/history
 ranger/bookmarks
