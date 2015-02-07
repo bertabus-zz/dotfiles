@@ -16,6 +16,11 @@ set incsearch " faster finding
 set scrolloff=15
 set shell=/bin/zsh
 set mouse=a
+set wildmenu
+
+" my custom help file, call with :help myhelp
+" you may need to create the help file tags with :helpt ~/.config/vim/doc/
+" but probably not since the rtp has been set
 
 set spell
 setlocal spell spelllang=en_us " set spell checking
@@ -85,13 +90,7 @@ highlight clear SignColumn
 
 " commenter that works exactly as needed
 Plugin 'tomtom/tcomment_vim'
-:map <leader>c gcc<esc>
-
-" better than command-t?
-" Have used CLI and awesome/ZSH for new file finding
-" Bundle 'kien/ctrlp.vim'
-" map <leader>t :CtrlP<cr>
-" let g:ctrlp_working_path_mode = 'ra'
+" :map <leader>c gcc<esc>
 
 " check common syntax errors, very useful
 Plugin 'scrooloose/syntastic'
@@ -100,23 +99,44 @@ let g:syntastic_warning_symbol = '!'
 
 " add Bundle for Go files
 Plugin 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_fmt_command = "goimports"
 
-" Track the engine for snippets.
+Plugin 'majutsushi/tagbar'
+
+" The engine for snippets.
 Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-
-"" Ultisnips use Control t and b/w to move around
+" my custom snippets directory
+Plugin 'bertabus/MiscVim'
+let g:UltiSnipsSnippetsDir="~/.config/vim/UltiSnips/"
+"" let Ultisnips use Control t and b/w to move around
 let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-w>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEnableSnipMate=0
 
 " use a tab completion engine
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2' " Arch uses python3
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'unite' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
+      \}
+      " \ 'text' : 1,
+      " \ 'markdown' : 1,
 
 " Use to surround text with stuff, for "hello" use cs"' to get 'hello'
 " For visual mode make selection and use S" to surround with quotes
@@ -128,20 +148,18 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-litecorrect'
-Plugin 'reedes/vim-textobj-quote'
+Plugin 'reedes/vim-lexical'
+let g:lexical#thesaurus = ['~/.config/vim/mthesaur.txt',]
+let g:lexical#thesaurus_key = '<leader>t'
+
 Plugin 'kana/vim-textobj-user'
-Plugin 'beloglazov/vim-online-thesaurus'
+
 Plugin 'gmarik/vundle'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 augroup text_files
   autocmd!
-  autocmd FileType markdown call textobj#quote#init()
-  autocmd FileType textile call textobj#quote#init()
-  autocmd FileType rst call textobj#quote#init()
-  " autocmd FileType tex call textobj#quote#init()
-  " autocmd!
   autocmd FileType markdown call litecorrect#init()
   autocmd FileType textile call litecorrect#init()
   autocmd FileType rst call litecorrect#init()
@@ -162,8 +180,8 @@ let g:wordy#ring = [
 " # the rings to turn off wordy.
 " /encoding=utf-8
 
-nnoremap <silent> <leader>w :NextWordy<cr>
-nnoremap <leader>t :OnlineThesaurusCurrentWord<cr>
+" nnoremap <silent> <leader>w :NextWordy<cr>
+nnoremap <silent> gw :NextWordy<cr>
 nnoremap W ]s
 nnoremap B [s
 " set directory to current file
@@ -204,16 +222,7 @@ endif
 syntax on
 filetype plugin indent on     " required!
 
+" may get annoying but I think I like the function prototypes
+" set completeopt=menuone,preview
 
-
-" testing setting single compile from shebang
-fun! s:DetectNode()
-    if getline(1) == '#!/usr/bin/env pypy'
-        :map <leader>r :!exec ./%<\n> 
-        :map <leader>m :SCCompile<cr>
-        :map <leader>v :SCViewResult<cr>
-        " call s:SCChooseCompiler 1<\r>
-    endif
-endfun
-autocmd BufNewFile,BufRead * call s:DetectNode()
 

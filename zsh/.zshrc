@@ -1,5 +1,5 @@
 # Bertabus customizations
-# feh --randomize --bg-fill ~/Pictures/wallpapers/*
+feh --randomize --bg-fill ~/Pictures/wallpapers/*
 DISABLE_AUTO_UPDATE="true"
 setopt DVORAK
 export PRINTER=HP_LaserJet_CP1525nw
