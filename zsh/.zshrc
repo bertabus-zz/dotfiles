@@ -1,5 +1,4 @@
 # Bertabus customizations
-feh --randomize --bg-fill ~/Pictures/wallpapers/*
 DISABLE_AUTO_UPDATE="true"
 setopt DVORAK
 export PRINTER=HP_LaserJet_CP1525nw
@@ -122,10 +121,10 @@ fortune
 # startx if not started already
 # only run if not running headless
 # to get graphics run `touch ~/graphics`
-graphics_file="~/graphics"
-if [ -f graphics_file ]
+if [[ -e ~/graphics ]]
 then
-  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc 
+  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx ~/.config/X11/xinitrc #;\
+   # feh --randomize --bg-fill ~/Pictures/wallpapers/
 fi
 
 ## add the following text to enable autologin for prior command

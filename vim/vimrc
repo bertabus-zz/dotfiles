@@ -53,7 +53,8 @@ if &term =~ "xterm\\|rxvt"
   " use \003]12;gray\007 for gnome-terminal
 endif
 
-
+set showcmd " show the keys being pressed
+:let mapleader = "," " change leader key to ,
 
 " set copy paste shortcuts to system clipboard
 " nnoremap <leader>s :w<cr>
@@ -64,9 +65,6 @@ vnoremap <leader>p "+gP
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nmap <silent> ,/ :nohlsearch<CR>
-
-set showcmd " show the keys being pressed
-:let mapleader = "," " change leader key to ,
 
 " Setup bundles
 set rtp+=~/.config/vim/bundle/Vundle.vim
@@ -111,8 +109,6 @@ Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
-" my custom snippets directory
-Plugin 'bertabus/MiscVim'
 let g:UltiSnipsSnippetsDir="~/.config/vim/UltiSnips/"
 "" let Ultisnips use Control t and b/w to move around
 let g:UltiSnipsExpandTrigger="<c-t>"
@@ -150,13 +146,23 @@ Plugin 'reedes/vim-wordy'
 Plugin 'reedes/vim-litecorrect'
 Plugin 'reedes/vim-lexical'
 let g:lexical#thesaurus = ['~/.config/vim/mthesaur.txt',]
-let g:lexical#thesaurus_key = '<leader>t'
+" set thesaurus='~/.config/vim/mthesaur.txt.bkp'
+let g:lexical#thesaurus_key = 'gt'
+let g:lexical#spell_key = 'gs'
+" let g:lexical#thesaurus_key = '<leader>t'
 
 Plugin 'kana/vim-textobj-user'
 
 Plugin 'gmarik/vundle'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+augroup lexical
+        autocmd!
+        autocmd FileType markdown,mkd call lexical#init()
+        autocmd FileType textile call lexical#init()
+        autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
 
 augroup text_files
   autocmd!
