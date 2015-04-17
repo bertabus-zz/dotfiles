@@ -92,6 +92,22 @@ alias 'pypy.test'='/opt/pypy/bin/py.test'
 alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
 alias 'screen'='screen -c ~/.config/screenrc'
 
+function img {
+last=${(P)#}
+if [ -f $last ] ; then
+        # NAME=${1%.*}
+        # mkdir $NAME && cd $NAME
+        case $last in
+                *.gif)          gifview -a "$@";;
+                *)              feh "$@"    ;;
+        esac
+# else
+#         echo "$1 - file does not exist"
+fi
+
+}
+
+
 # for android setup
 export LD_LIBRARY_PATH=/opt/google/Android-Sdk/sdk/tools/lib:$LD_LIBRARY_PAT
 # android is general tool

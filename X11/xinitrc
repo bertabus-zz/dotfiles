@@ -41,3 +41,6 @@ exec xmonad
 # exec enlightenment_start 
 # exec awesome
 
+# Start a simple notification Daemon
+exec dunst -config ~/.config/X11/dunstrc
+
