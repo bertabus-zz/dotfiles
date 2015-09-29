@@ -38,6 +38,9 @@ COMPLETION_WAITING_DOTS="true"
 # yyyy-mm-dd
 HIST_STAMPS="yyyy-mm-dd"
 
+# LATEX command to compile with ps-tricks, will likely cause problems for you
+alias pdflatex="pdflatex --shell-escape"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -76,13 +79,16 @@ alias get-groups='cut -d: -f1 /etc/group'
 autoload -U zmv           # activate zmv command
 alias mmv='noglob zmv -W' # set the zmv command alias to mmv
 
+# I almost always want to preserve environment so make it default
+alias sudo='sudo -E'
+
 # for custom programs/installations
 # All programs should be placed in /opt/
 export PATH=$HOME/.config/bin:/usr/local/bin:$PATH
+export PATH=~/.cabal/bin:$PATH
 export GOPATH=~/go
 export GOBIN=~/go/bin
 export PATH=$PATH:~/go/bin
-export PATH=$PATH:/opt/google/go_appengine/
 export PATH=/opt/saleae:$PATH
 export PATH=/opt/altera/13.1/quartus/bin:$PATH
 export PATH=/usr/local/texlive/2013/bin/x86_64-linux/:$PATH
@@ -116,6 +122,24 @@ alias 'android'='/opt/google/Android-Sdk/sdk/tools/android'
 emu_android () {/opt/google/Android-Sdk/sdk/tools/emulator-x86 \
         -avd "$@" -gpu on -qemu -m 1024 -enable-kvm}
 
+# for google cloud 
+# The next line updates PATH for the Google Cloud SDK.
+source '/opt/google/google-cloud-sdk/path.zsh.inc'
+# The next line enables bash completion for gcloud.
+source '/opt/google/google-cloud-sdk/completion.zsh.inc'
+# the next line sets the correct python for the sdk
+export CLOUDSDK_PYTHON="python2" 
+# export PATH=$PATH:/opt/google/
+# golang is in flux, gcloud is buggy so alias goapp
+alias godeploy="/opt/google/go_appengine/goapp deploy -oauth"
+# alias goserve="gcloud preview app run"
+# alias goserve="gcloud preview app run app.yaml"
+# alias goserve="/opt/google/go_appengine/appcfg.py serve"
+# alias goserve="/opt/google/google-cloud-sdk/platform/google_appengine/dev_appserver.py"
+alias goserve="python2 /opt/google/go_appengine/dev_appserver.py \`pwd\`/app.yaml"
+# make context and vim-go recognize app-engine libs
+# alias appvim="export GOROOT=$APPENGINE_SDK/goroot && vim"
+
 # add dvd and cd burning aliases
 # use these as burn[cd/dvd] /dev/sr0 file1 file2 file3
 # burndvd may need export MKISOFS="genisoimage"
@@ -131,8 +155,8 @@ export MANPATH="/usr/local/texlive/2013/texmf-dist/doc/man"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 
-# random fortune cookie on boot
-fortune
+# random fortune cookie on terminal load, but only a short one
+fortune -s
 
 # startx if not started already
 # only run if not running headless

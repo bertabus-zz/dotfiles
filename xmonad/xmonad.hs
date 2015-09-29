@@ -59,6 +59,7 @@ myManageHook = composeAll
     , className =? "Google-chrome"  --> doShift "2:web"
     , className =? "Google-chrome-beta"  --> doShift "2:web"
     , className =? "Google-chrome-dev"  --> doShift "2:web"
+    , className =? "google-chrome-stable"  --> doShift "2:web"
     , resource  =? "desktop_window" --> doIgnore
     , className =? "Galculator"     --> doFloat
     , className =? "Steam"          --> doFloat
