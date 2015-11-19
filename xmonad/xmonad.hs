@@ -139,33 +139,36 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Start a terminal.  Terminal to start is specified by myTerminal variable.
-  [ ((modMask .|. shiftMask, xK_Return),
+  [ ((modMask , xK_Return),
      spawn $ XMonad.terminal conf)
 
   -- Lock the screen using xscreensaver.
   , ((modMask .|. controlMask, xK_l),
      spawn "xscreensaver-command -lock")
 
-  -- Launch dmenu via yeganesh.
+  -- Launch dmenu
   -- Use this to launch programs without a key binding.
   , ((modMask, xK_p),
      spawn "dmenu_run")
-     -- spawn "dmenu-with-yeganesh")
 
-  -- Take a screenshot in select mode.
-  -- After pressing this key binding, click a window, or draw a rectangle with
-  -- the mouse.
-  , ((modMask .|. shiftMask, xK_p),
-     spawn "select-screenshot")
+  -- Take a Screenshot using scrot and printscreen button
+  , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
+  , ((0, xK_Print), spawn "scrot")
 
-  -- Take full screenshot in multi-head mode.
-  -- That is, take a screenshot of everything you see.
-  , ((modMask .|. controlMask .|. shiftMask, xK_p),
-     spawn "screenshot")
+  -- -- Take a screenshot in select mode.
+  -- -- After pressing this key binding, click a window, or draw a rectangle with
+  -- -- the mouse.
+  -- , ((modMask .|. shiftMask, xK_p),
+  --    spawn "select-screenshot")
+  --
+  -- -- Take full screenshot in multi-head mode.
+  -- -- That is, take a screenshot of everything you see.
+  -- , ((modMask .|. controlMask .|. shiftMask, xK_p),
+  --    spawn "screenshot")
 
-  -- Fetch a single use password.
-  , ((modMask .|. shiftMask, xK_o),
-     spawn "fetchotp -x")
+  -- -- Fetch a single use password.
+  -- , ((modMask .|. shiftMask, xK_o),
+  --    spawn "fetchotp -x")
 
   , ((modMask,      xK_Right),  nextWS)
   , ((modMask,      xK_Left),    prevWS)
@@ -178,6 +181,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --
 
   -- Close focused window.
+  , ((modMask , xK_a),
+     kill)
+  , ((modMask , xK_Delete),
+     kill)
+  , ((modMask , xK_Escape),
+     kill)
   , ((modMask .|. shiftMask, xK_c),
      kill)
 
@@ -210,8 +219,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      windows W.focusMaster  )
 
   -- Swap the focused window and the master window.
-  , ((modMask, xK_Return),
-     windows W.swapMaster)
+  -- , ((modMask, xK_Return),
+  --    windows W.swapMaster)
 
   -- Swap the focused window with the next window.
   , ((modMask .|. shiftMask, xK_j),

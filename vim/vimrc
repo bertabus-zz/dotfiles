@@ -109,6 +109,8 @@ let g:go_fmt_command = "goimports"
 
 Plugin 'majutsushi/tagbar'
 
+Plugin 'keith/swift.vim'
+
 " The engine for snippets.
 Plugin 'SirVer/ultisnips'
 

@@ -66,6 +66,7 @@ alias www=$BROWSER %U
 # alias ls='ls --color'
 alias ll='ls -l'
 alias la='ls -a'
+alias lr='ls -atr'
 alias lla='ls -al'
 alias lF='ls -F'
 alias laF='ls -laF'
@@ -137,6 +138,7 @@ alias godeploy="/opt/google/go_appengine/goapp deploy -oauth"
 # alias goserve="/opt/google/go_appengine/appcfg.py serve"
 # alias goserve="/opt/google/google-cloud-sdk/platform/google_appengine/dev_appserver.py"
 alias goserve="python2 /opt/google/go_appengine/dev_appserver.py \`pwd\`/app.yaml"
+alias goapp="/opt/google/go_appengine/goapp"
 # make context and vim-go recognize app-engine libs
 # alias appvim="export GOROOT=$APPENGINE_SDK/goroot && vim"
 
