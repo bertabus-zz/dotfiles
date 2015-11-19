@@ -56,3 +56,12 @@ mkdir -p ~/.terminfo/rl
 # on localhost machine
 scp /usr/share/terminfo/r/rxvt-256color user@server.com:.terminfo/r/
 ```
+
+
+## Mac notes
+just clone it and link some files (...add details)
+for sure
+```sh
+ln -s ~/.config/vim/vimrc .vimrc
+```
+also macvim is the way to go for clang and python interop
