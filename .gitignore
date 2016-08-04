@@ -1,6 +1,3 @@
-# ignore everything except what I tell you
-/*
-
 # ignore the binary folder, recompile after pulling
 !bin/*
 
@@ -9,31 +6,3 @@
 !matplotlib/
 # include the source files
 !bin/src
-!zsh/
-!X11/
-!ranger/
-!vim/
-!rules.d/
-!xmonad/
-
-# ignore these subfolders
-vim/bundle/
-ranger/__pycache__/*
-ranger/history
-ranger/bookmarks
-ranger/commands.pyo
-xmonad/*
-
-# include the following files
-!.yaourtrc
-!screenrc
-!vim/vimrc
-!resume.tex
-!.gitignore
-!xmonad/xmonad.hs
-!xmonad/xmobar.hs
-!xmonad/README.markdown
-
-# ignore these subfiles
-zsh/.zsh_history
-zsh/.zcompdump*
