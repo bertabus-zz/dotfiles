@@ -4,16 +4,17 @@ My dotfiles
 I prefer most of my settings to live in the **XDG_CONFIG_HOME**
 in order to hide them and keep them all under version control.
 I place mine in */home/bertabus/.config* in keeping with the
-freedesktop standards. Don't forget to create these files 
+freedesktop standards. Don't forget to create these files
 if they don't exist already.
 ``` sh
 mkdir ~/.config
 mkdir ~/.cache
 ```
 
-*.gitignore* will exclude everything that is in the 
+
+*.gitignore* will exclude everything that is in the
 directory except those files/folders explicitly called out.
-The easiest way to clone is to do it in a clean 
+The easiest way to clone is to do it in a clean
 folder and move everything from there to where you want it.
 
 my ZSHrc is heavily dependant on [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -22,7 +23,7 @@ Clone my config with
 ``` sh
 cd ~/.config
 git clone https://github.com/bertabus/dotfiles .
-``` 
+```
 
 In order to get PATHs setup right link the zshenv file.
 ``` sh
