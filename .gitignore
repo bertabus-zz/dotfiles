@@ -2,9 +2,8 @@
 /*
 
 # include these (these may need there own .gitignore)
-#with !* to include everything
+# with !* to include everything
 !matplotlib/
-!bin/
 !bin/src
 !zsh/
 !X11/
@@ -12,6 +11,9 @@
 !vim/
 !rules.d/
 !xmonad/
+
+# ignore the binary folder, recompile after pulling
+!bin/
 
 # ignore these subfolders
 vim/bundle/
@@ -34,4 +36,3 @@ xmonad/*
 # ignore these subfiles
 zsh/.zsh_history
 zsh/.zcompdump*
-
