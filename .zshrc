@@ -40,7 +40,7 @@ plugins=(archlinux git git-extras github pip python debian \
 source $ZSH/oh-my-zsh.sh
 if [[ $PROFILE_FLAG != "SET" ]]
 then
-    source .profile
+    source ~/.profile
 fi
 
 # User configuration

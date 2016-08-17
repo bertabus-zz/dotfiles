@@ -6,7 +6,7 @@ for i in *.sh; do
     y=${i%.*}
     cd ..
     echo linking file $i to bin/${y##*/}
-    ln -s  src/${i} ${y##*/}
+    ln -sf  src/${i} ${y##*/}
     cd src
 done
 cd ../..

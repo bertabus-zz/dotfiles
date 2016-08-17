@@ -1,8 +1,9 @@
-# ignore the binary folder, recompile after pulling
-!bin/*
 
 # include these (these may need there own .gitignore)
 # with !* to include everything
 !matplotlib/
 # include the source files
 !bin/src
+
+# ignore the binary folder, recompile after pulling
+!bin/*
