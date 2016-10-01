@@ -56,10 +56,10 @@ fi
 alias o=xdg-open
 alias www=$BROWSER %U
 # alias ls='ls --color'
-alias ll='ls -l'
-alias la='ls -a'
+alias ll='ls -lh'
+alias la='ls -ah'
 alias lr='ls -atr'
-alias lla='ls -al'
+alias lla='ls -alh'
 alias lF='ls -F'
 alias laF='ls -laF'
 alias llF='ls -lF'

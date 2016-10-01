@@ -6,5 +6,8 @@
 # ignore the binary folder, recompile after pulling
 bin/*
 
+# ignore submodules directory
+submodules/*
+
 # include the source files
 !bin/src

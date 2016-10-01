@@ -24,6 +24,21 @@ chmod +x bootstrap.sh
 Also take a look at the my [UDEV rules](rules.d/) that are useful for various
 embedded programmers.
 
+### Submodules
+
+I use several third party libraries, I place these in a folder named submodules.
+I realize that .local or just local is the more traditional. This allows me to separate
+these simple one off's into a world of their own. My submodules are as follows
+
+Briss
+: Pdf editor, very useful for editing margins to fit on a small screen.
+
+[Footprintbuild](https://cyclerecorder.org/footprintbuilder/)
+: a useful integrated circuit foot print builder, may not still be needed with newest kicad but has been very useful in the past.
+
+Sejda
+: a pdf concatenation and TOC command line tool. Have found it more versatile than pdftk, though slower by a touch.
+
 ### Additional Notes
 
 Problems can arise when connecting to remote hosts over ZSH, Typically this is as
