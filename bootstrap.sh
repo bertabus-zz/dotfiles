@@ -1,4 +1,14 @@
-#!/bin/env sh
+#!/usr/bin/env bash
+
+uname -s #Linux or Darwin or Cygwin
+
+# if [ "$(uname)" == "Darwin" ]; then
+#     # Do something under Mac OS X platform
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+#     # Do something under GNU/Linux platform
+# elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+#     # Do something under Windows NT platform
+# fi
 
 # Link all shell files (ending in sh) to bin without sh extension
 cd bin/src

@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# ~/.xprofile
+#
+# Executed by login manager on start up
+
+setxkbmap us -variant dvorak
+export LANG=en_US.UTF-8
+
+# add third pointer goodness
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+xset -b # No system beep
+# setleds -caps
+
+xrdb -merge ~/.config/X11/xresources
+
+# bind XF86 and other key maps
+xbindkeys -f ~/.config/X11/xbindkeysrc
+# change caps lock to mod4 key
+xmodmap -e "clear Lock"
+xmodmap -e "keycode 66 = Hyper_L"
+xmodmap -e "add mod4 = Hyper_L"

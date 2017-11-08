@@ -1,3 +1,7 @@
+# Bertabus .profile, set basic/simple settings like
+# Path, Editor, and other settings, also set ssh here
+
+# set dvorak as default keyboard
 setopt DVORAK
 
 # good feature set for term
@@ -9,7 +13,7 @@ export PROFILE_FLAG="SET"
 
 export PRINTER=HP_LaserJet_CP1525nw
 # export TERM=xterm-256color #important for ssh compatibility
-export EDITOR=atom
+export EDITOR=subl
 # export HISTFILE=$XDG_CONFIG_HOME/.zsh_history
 export BROWSER=/usr/bin/google-chrome-stable
 export wiki_browser=$BROWSER
@@ -27,6 +31,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=/opt/saleae:$PATH
 export PATH=$PATH:/opt/google-appengine-go
 export PATH=$PATH:$HOME/.dotfiles/bin
+export PATH=$PATH:$HOME/bin
 
 
 ###ssh agent start, automates the ssh keychain loading

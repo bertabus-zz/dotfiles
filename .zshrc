@@ -1,4 +1,7 @@
 # Bertabus zshell specific customizations
+# has anything you'd want at an interactive command line. 
+# Command prompt, EDITOR variable, bash aliases for my use, etc.
+# path and other simple settings found in .profile
 
 # disable oh_my_zsh autoupdate
 DISABLE_AUTO_UPDATE="true"
@@ -94,23 +97,30 @@ alias 'pypy.test'='/opt/pypy/bin/py.test'
 alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
 alias 'screen'='screen -c ~/.config/screenrc'
 
-function img {
-last=${(P)#}
-if [ -f $last ] ; then
-        # NAME=${1%.*}
-        # mkdir $NAME && cd $NAME
-        case $last in
-                *.gif)          gifview -a "$@";;
-                *)              feh "$@"    ;;
-        esac
-# else
-#         echo "$1 - file does not exist"
-fi
+# only finds non git and related files
+function gocd () { cd `go list -f '{{.Dir}}' $1` }
 
+# filesInFolders *.txt 
+# will take all .txt files, create a directory from filename
+# and place the txt file inside of that directory
+function filesInFolders {
+    # if no arguments, exit
+    if [[ "$#" -lt 2 ]]; then
+        echo "Example usages:"
+        echo "  filesInFolders *.txt"
+        echo "  filesInFolders *.m4b"
+        return
+    fi
+
+    # Loop over all variables "$@" (*.txt for example)
+    for i in "$@"
+    do   
+       mkdir "${i%.*}" && mv "$i" "${i%.*}"
+    done
 }
 
 
-# # for android setup
+# # for android setupPATH
 # export LD_LIBRARY_PATH=/opt/google/Android-Sdk/sdk/tools/lib:$LD_LIBRARY_PAT
 # # android is general tool
 # alias 'android'='/opt/google/Android-Sdk/sdk/tools/android'
