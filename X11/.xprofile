@@ -15,10 +15,12 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 xset -b # No system beep
 # setleds -caps
 
-xrdb -merge ~/.config/X11/xresources
+xrdb -merge ~/.dotfiles/X11/xresources
+# xrdb -merge ~/.config/X11/xresources
 
 # bind XF86 and other key maps
-xbindkeys -f ~/.config/X11/xbindkeysrc
+# No long use xbindkeys, just use the xfce file found at
+# .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 # change caps lock to mod4 key
 xmodmap -e "clear Lock"
 xmodmap -e "keycode 66 = Hyper_L"

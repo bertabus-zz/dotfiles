@@ -10,7 +10,8 @@ DISABLE_AUTO_UPDATE="true"
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="afowler"
+ZSH_THEME="candy"
+# ZSH_THEME="afowler"
 
 if [[ -z "$SSH_CLIENT" ]]; then
         prompt_host=""
@@ -95,7 +96,7 @@ alias saleae=logic
 alias quartus='quartus --64bit'
 alias 'pypy.test'='/opt/pypy/bin/py.test'
 alias 'pypy.install'='sudo /opt/pypy/bin/easy_install'
-alias 'screen'='screen -c ~/.config/screenrc'
+alias 'screen'='screen -c ~/.dotfiles/screenrc'
 
 # only finds non git and related files
 function gocd () { cd `go list -f '{{.Dir}}' $1` }
