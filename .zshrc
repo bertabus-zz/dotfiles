@@ -10,8 +10,8 @@ DISABLE_AUTO_UPDATE="true"
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="candy"
-# ZSH_THEME="afowler"
+# ZSH_THEME="cloud"
+ZSH_THEME="agnoster"
 
 if [[ -z "$SSH_CLIENT" ]]; then
         prompt_host=""
